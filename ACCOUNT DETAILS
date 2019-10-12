@@ -1,0 +1,30 @@
+class account_details:
+
+    balance = 0
+
+    def __init__(self,acnt_no,holder_name):
+        self.acnt_no = acnt_no
+        self.holder_name = holder_name
+    @classmethod # DECORATOR
+    def deposit(self):
+        amount = float(input("Enter Amount to be Deposited = "))
+        self.balance += amount
+        print(" Amount Deposited: ",self.balance)
+
+    @classmethod # DECORATOR
+    def withdraw(self):
+        amount = float(input("Enter Amount to be Withdrawn = "))
+        if self.balance >= amount:
+            self.balance -= amount
+            print("Final Balance", self.balance)
+        else:
+            print("\n INSUFFIENT BALANCE !  ")
+
+
+customer = account_details(123456,'BILL')
+
+print("Customer Account_no =" ,customer.acnt_no, "\nAccount Holder_Name =",customer.holder_name,"\nBalance = ",customer.balance)
+
+account_details.deposit()
+account_details.withdraw()
+print("\nTHANK YOU !")
